@@ -1,5 +1,9 @@
 # STAR_summary
-Simple python script to recursively search for [STAR](https://github.com/alexdobin/STAR) `log.final.out` files and pull summary stats for each sample into a csv file.
+Simple python scripts to summarize and handle `STAR` summary statistics into dataset tables in `csv` format.
+
+# STAR_summary.py
+
+A simple script to recursively search for [STAR](https://github.com/alexdobin/STAR) `log.final.out` files and pull summary stats for each sample into a csv file.
 
 ## Expected Directory structure
 ```bash
@@ -32,3 +36,14 @@ Number of splices: Total
 Number of splices: Annotated (sjdb)
 Number of splices: GT/AG
 ```
+
+# samtools_stats_to_csv.py
+
+Amalgamates the `samtools.stats.txt` alignment stats files created after running the `samtools stats` command. Pulls files from a single directory, creates a summary table (`csv`) for the entire dataset, with samples as rows.
+
+## Basic usage
+```bash
+python3 samtools_stats_to_csv.py /path/to/stats/ \
+    -o samtools_summary.csv
+```
+
